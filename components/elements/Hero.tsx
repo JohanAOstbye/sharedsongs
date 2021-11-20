@@ -1,7 +1,15 @@
 import React from 'react';
+import Image from 'next/image';
+import hero from '/public/images/hero.webp';
 
 const Hero = () => {
-  return <div>hero</div>;
+  return (
+    <div id='home'>
+      <div className='absolute inset-0 w-full h-full overflow-hidden'>
+        <Image src={hero} layout='fill' objectFit='cover' />
+      </div>
+    </div>
+  );
 };
 
 export default Hero;

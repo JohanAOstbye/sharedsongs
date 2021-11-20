@@ -1,7 +1,7 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  purge: [],
+  purge: ['./public/**/*.html', './src/**/*.{js,jsx,ts,tsx,vue}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     screens: {
@@ -85,7 +85,40 @@ module.exports = {
       emphasistexthigh: '87%',
       emphasistextmedium: '60%',
       emphasistextdisabled: '38%',
+      0: '0',
+      10: '.1',
+      20: '.2',
+      30: '.3',
+      40: '.4',
+      50: '.5',
+      60: '.6',
+      70: '.7',
+      80: '.8',
+      90: '.9',
+      95: '.95',
+      100: '1',
       //TODO: add css for diabled surface states
+    },
+    zIndex: {
+      0: 0,
+      1: 1,
+      2: 2,
+      3: 3,
+      4: 4,
+      5: 5,
+      6: 6,
+      7: 7,
+      8: 8,
+      9: 9,
+      10: 10,
+      20: 20,
+      25: 25,
+      30: 30,
+      40: 40,
+      50: 50,
+      75: 75,
+      100: 100,
+      auto: 'auto',
     },
   },
   variants: {

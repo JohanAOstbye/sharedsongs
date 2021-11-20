@@ -1,4 +1,3 @@
-import { auth } from '../../config/firebase';
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import {
@@ -7,9 +6,10 @@ import {
   XIcon,
   MusicNoteIcon,
   LoginIcon,
+  UserIcon,
 } from '@heroicons/react/outline';
 import { useAuth } from '../../hooks/useAuth';
-import { signOut } from '@firebase/auth';
+import Link from 'next/link';
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
@@ -25,7 +25,7 @@ export default function Example() {
   const [user, loading, error] = useAuth();
 
   return (
-    <Disclosure as='nav' className='bg-gray-800 w-full'>
+    <Disclosure as='nav' className=' bg-surface w-full sticky z-10'>
       {({ open }) => (
         <>
           <div className='max-w-7xl mx-auto px-2 sm:px-6 lg:px-8'>
@@ -43,16 +43,12 @@ export default function Example() {
               </div>
               <div className='flex-1 flex items-center justify-center sm:items-stretch sm:justify-start'>
                 <div className='flex-shrink-0 flex items-center'>
-                  <img
-                    className='block lg:hidden h-8 w-auto'
-                    src='https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg'
-                    alt='Workflow'
-                  />
-                  <img
-                    className='hidden lg:block h-8 w-auto'
-                    src='https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg'
-                    alt='Workflow'
-                  />
+                  <Link href='/'>
+                    <a>
+                      <MusicNoteIcon className='block lg:hidden h-8 w-auto text-accent' />
+                      <MusicNoteIcon className='hidden lg:block h-8 w-auto text-accent' />
+                    </a>
+                  </Link>
                 </div>
                 <div className='hidden sm:block sm:ml-6'>
                   <div className='flex space-x-4'>
@@ -89,11 +85,15 @@ export default function Example() {
                     <div>
                       <Menu.Button className=''>
                         <span className='sr-only'>Open user menu</span>
-                        <img
-                          className='h-8 w-8 rounded-full'
-                          src={user.photoURL}
-                          alt=''
-                        />
+                        {user.photoURL ? (
+                          <img
+                            className='h-8 w-8 rounded-full'
+                            src={user.photoURL}
+                            alt=''
+                          />
+                        ) : (
+                          <UserIcon />
+                        )}
                       </Menu.Button>
                     </div>
                     <Transition
@@ -150,12 +150,14 @@ export default function Example() {
                   </Menu>
                 ) : (
                   <Menu as='div' className='ml-3 relative'>
-                    <div>
-                      <Menu.Button className='bg-gray-800 flex text-sm rounded-full'>
-                        <span className='sr-only'>Log in</span>
-                        <LoginIcon className='h-8 w-8' />
-                      </Menu.Button>
-                    </div>
+                    <Link href='/login'>
+                      <a>
+                        <Menu.Button className='bg-gray-800 flex text-sm rounded-full'>
+                          <span className='sr-only'>Log in</span>
+                          <LoginIcon className='h-8 w-8' />
+                        </Menu.Button>
+                      </a>
+                    </Link>
                   </Menu>
                 )}
               </div>
