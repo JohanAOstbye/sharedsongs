@@ -6,13 +6,20 @@ import Head from './Head';
 type Props = {
   children?: ReactNode;
   title?: string;
+  className?: string;
 };
 
-const Layout = ({ children, title = 'This is the default title' }: Props) => (
+const Layout = ({
+  children,
+  title = 'This is the default title',
+  className = 'bg-background',
+}: Props) => (
   <div className=' text-on-background flex flex-col items-center justify-center min-h-screen'>
     <Head title={title} />
     <Navbar />
-    <main className='flex flex-col items-center justify-center w-full min-h-screen flex-1 px-5 text-center'>
+    <main
+      className={`${className} flex flex-col items-center justify-center w-full min-h-screen flex-1 px-5 text-center`}
+    >
       {children}
     </main>
     <Footer />

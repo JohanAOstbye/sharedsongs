@@ -10,7 +10,7 @@ const Home: NextPage = () => {
   const [user, loading, error] = useAuthState(auth);
   return (
     <div className=''>
-      <Layout>
+      <Layout className=''>
         <Hero />
       </Layout>
     </div>
