@@ -14,7 +14,7 @@ import Link from 'next/link';
 const navigation = [
   { name: 'Home', href: '/', current: true },
   { name: 'Explore', href: '/explore', current: false },
-  { name: 'About', href: '/about', current: false },
+  { name: 'About', href: '/info/about', current: false },
 ];
 
 function classNames(...classes) {

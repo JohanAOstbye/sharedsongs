@@ -90,7 +90,7 @@ const Footer = () => {
                       </a>
                     </li>
                     <li className='mt-6'>
-                      <Link href='/terms-of-service'>
+                      <Link href='/info/terms-of-service'>
                         <a className='text-xs lg:text-sm leading-none hover:text-accent text-gray-800 dark:text-gray-50'>
                           Terms of service
                         </a>

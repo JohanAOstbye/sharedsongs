@@ -50,8 +50,8 @@ const uiConfig = {
     GithubAuthProvider.PROVIDER_ID,
   ],
   signInSuccessUrl: '/',
-  tosUrl: '/terms-of-service',
-  privacyPolicyUrl: '/privacy-policy',
+  tosUrl: '/info/terms-of-service',
+  privacyPolicyUrl: '/info/privacy-policy',
   credentialHelper: 'none',
   callbacks: {
     // https://github.com/firebase/firebaseui-web#signinsuccesswithauthresultauthresult-redirecturl
