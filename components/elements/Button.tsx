@@ -11,7 +11,7 @@ const btnLink = ({ link = '/test', children = 'test', classNames }: props) => {
   return (
     <Link href={link}>
       <a
-        className={`bg-accent text-on-accent rounded-md py-2 px-4 font-bold ${classNames}`}
+        className={`${classNames} bg-accent text-on-accent rounded-md py-2 px-4 font-bold`}
       >
         {children}
       </a>
