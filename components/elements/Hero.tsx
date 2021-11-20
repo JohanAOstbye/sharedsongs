@@ -6,7 +6,7 @@ import Button from '../elements/Button';
 const Hero = () => {
   return (
     <div>
-      <div className='absolute inset-0 w-full h-full overflow-hidden'>
+      <div className='absolute inset-x-0 top-16 bottom-0 w-full h-full overflow-hidden'>
         <Image
           src={hero}
           layout='fill'
