@@ -9,9 +9,11 @@ import { auth } from '../config/firebase';
 const Home: NextPage = () => {
   const [user, loading, error] = useAuthState(auth);
   return (
-    <Layout>
-      <Hero />
-    </Layout>
+    <div className=''>
+      <Layout>
+        <Hero />
+      </Layout>
+    </div>
   );
 };
 

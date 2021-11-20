@@ -53,3 +53,7 @@ A `type-check` script is also added to `package.json`, which runs TypeScript's `
 The colors are based on [Material.io's guide](https://material.io/design/color/dark-theme.html#properties)
 
 Color can be accessed through the [tailwind](https://tailwindcss.com/docs) theme in the `tailwind.config.js` file
+
+### Icons
+
+icons are imported from [heroicons](https://heroicons.com/)
