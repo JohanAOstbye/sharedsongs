@@ -18,7 +18,9 @@ const Layout = ({
     <Head title={title} />
     <Navbar />
     <main
-      className={`${className} flex flex-col items-center justify-center w-full min-h-screen flex-1 px-5 text-center`}
+      className={`${className} flex flex-col items-center justify-center w-full ${
+        className ? '' : 'min-h-screen'
+      } flex-1 px-5 text-center`}
     >
       {children}
     </main>

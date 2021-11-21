@@ -13,7 +13,7 @@ const Hero = () => {
           src={hero}
           layout='fill'
           objectFit='cover'
-          className='z-minus20'
+          className='z-minus20 bg-background'
         />
       </div>
       {user ? (

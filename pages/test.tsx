@@ -6,9 +6,7 @@ import FullPageLoader from '../components/Layout/FullPageLoader';
 const Test = () => {
   return (
     <Layout>
-      <div>
-        <FullPageLoader />
-      </div>
+      <FullPageLoader />
     </Layout>
   );
 };
