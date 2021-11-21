@@ -14,14 +14,14 @@ const Footer = () => {
                 <div className='w-full lg:w-1/2 px-6'>
                   <ul>
                     <li>
-                      <Link href='javascript:void(0)'>
+                      <Link href='/info/about'>
                         <a className='text-xs lg:text-sm leading-none hover:text-accent text-gray-800'>
                           About
                         </a>
                       </Link>
                     </li>
                     <li className='mt-6'>
-                      <Link href='javascript:void(0)'>
+                      <Link href='/info/faq'>
                         <a className='text-xs lg:text-sm leading-none hover:text-accent text-gray-800'>
                           FAQ
                         </a>
@@ -32,14 +32,14 @@ const Footer = () => {
                 <div className='w-full lg:w-1/2 px-6'>
                   <ul>
                     <li>
-                      <Link href='javascript:void(0)'>
+                      <Link href='/info/blog'>
                         <a className='text-xs lg:text-sm leading-none hover:text-accent text-gray-800'>
                           Blog
                         </a>
                       </Link>
                     </li>
                     <li className='mt-6'>
-                      <Link href='javascript:void(0)'>
+                      <Link href='/info/changelog'>
                         <a className='text-xs lg:text-sm leading-none hover:text-accent text-gray-800'>
                           Changelog
                         </a>
@@ -53,7 +53,7 @@ const Footer = () => {
                   <ul>
                     <li>
                       <a
-                        href='javascript:void(0)'
+                        href='/info/privacy-policy'
                         className='text-xs lg:text-sm leading-none hover:text-accent text-gray-800'
                       >
                         Privacy policy
@@ -70,23 +70,23 @@ const Footer = () => {
                 </div>
                 <div className='w-full lg:w-1/2 px-6 flex flex-col justify-between'>
                   <div className='flex items-center'>
-                    <a href='javascript:void(0)'>
+                    <a href='https://github.com/JohanAOstbye'>
                       <div className='text-gray-800 cursor-pointer hover:text-accent'>
                         <FaGithub className='h-6 w-6' />
                       </div>
                     </a>
-                    <a href='javascript:void(0)'>
-                      <div className='pl-4'>
+                    <a href='https://twitter.com/twitter'>
+                      <div className='pl-4 hover:text-accent'>
                         <FaTwitter className='h-6 w-6' />
                       </div>
                     </a>
-                    <a href=''>
-                      <div className='pl-4'>
+                    <a href='https://play.google.com/store'>
+                      <div className='pl-4 hover:text-accent'>
                         <FaGooglePlay className='h-6 w-6' />
                       </div>
                     </a>
-                    <a href=''>
-                      <div className='pl-4'>
+                    <a href='https://www.apple.com/no/app-store/'>
+                      <div className='pl-4 hover:text-accent'>
                         <FaApple className='h-6 w-6' />
                       </div>
                     </a>
@@ -97,7 +97,7 @@ const Footer = () => {
           </div>
         </div>
         <div className='py-16 flex flex-col justify-center items-center'>
-          <Link href='javascript:void(0)'>
+          <Link href='/'>
             <a className='flex items-center'>
               <MusicNoteIcon className='block lg:hidden h-14 w-auto text-accent' />
               <MusicNoteIcon className='hidden lg:block h-14 w-auto text-accent' />
