@@ -12,7 +12,7 @@ const SignOut = () => {
   if (user) {
     signOut(auth);
   } else {
-    router.push('/');
+    typeof window !== 'undefined' && router.push('/');
   }
 
   return <FullPageLoader />;

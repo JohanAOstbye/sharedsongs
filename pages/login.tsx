@@ -20,7 +20,7 @@ export default function Login() {
   else if (error) return <Error msg={error} />;
   else if (user) {
     // user is already logged in, redirect to home page
-    router.push('/');
+    typeof window !== 'undefined' && router.push('/');
   }
 
   return (
