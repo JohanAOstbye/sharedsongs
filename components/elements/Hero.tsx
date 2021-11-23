@@ -27,7 +27,7 @@ const Hero = () => {
             </p>
           </div>
           <div>
-            <Button link='/connect-spotify' classNames='z-3'>
+            <Button link='/spotify/connect' classNames='z-3'>
               Connect Spotify
             </Button>
           </div>
@@ -43,13 +43,13 @@ const Hero = () => {
             </p>
           </div>
           <div className='border-t-2 md:border-t-0 md:border-l-2 md:pl-10 border-accent py-4 pt-6 flex flex-col sm:flex-row md:flex-col justify-center'>
-            <Button link='/connect-spotify' classNames='z-3 mx-14 sm:mx-0'>
+            <Button link='/login' classNames='z-3 mx-14 sm:mx-0'>
               Create an account
             </Button>
             <div className='m-2'>
               <span>or</span>
             </div>
-            <Button link='/connect-spotify' classNames='z-3 mx-14 sm:mx-0'>
+            <Button link='/login' classNames='z-3 mx-14 sm:mx-0'>
               Log in
             </Button>
           </div>
