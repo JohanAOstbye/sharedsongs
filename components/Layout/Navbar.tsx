@@ -20,7 +20,7 @@ export const Item = ({
   smooth?: boolean;
 }) => {
   return (
-    <motion.li className='text-2xl mt-10 sm:mt-0 sm:ml-6'>
+    <motion.li className='mt-10 sm:mt-0 sm:ml-6'>
       {smooth ? (
         <Link href={link}>
           <a>{text}</a>
@@ -72,7 +72,7 @@ export const Nav = () => {
     >
       <LogoIcon className='h-full w-auto p-3 z-50 ml-3' />
       <ItemList
-        className='sm:!hidden absolute w-screen flex flex-col items-center h-screen mt-16'
+        className='text-2xl sm:!hidden absolute w-screen flex flex-col items-center h-screen mt-16'
         variants={{
           closed: {
             x: 0,
@@ -88,7 +88,7 @@ export const Nav = () => {
           },
         }}
       />
-      <ItemList className='hidden sm:flex items-center p-3 mr-3 z-50' />
+      <ItemList className='text-xl hidden sm:flex items-center p-3 mr-3 z-50' />
       <MenuIcon
         toggle={() => toggleOpen()}
         className='h-full w-auto sm:hidden p-4 z-50 mr-3'
