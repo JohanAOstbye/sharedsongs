@@ -1,202 +1,100 @@
-import { Fragment } from 'react';
-import { Disclosure, Menu, Transition } from '@headlessui/react';
-import {
-  BellIcon,
-  MenuIcon,
-  XIcon,
-  MusicNoteIcon,
-  LoginIcon,
-  UserIcon,
-} from '@heroicons/react/outline';
-import { useAuth } from '../../hooks/useAuth';
+import { motion, useCycle, Variants } from 'framer-motion';
+import { MenuIcon } from '../icons/MenuIcon';
+import { LogoIcon } from '../icons/LogoIcon';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
-const navigation = [
-  { name: 'Home', href: '/', current: true },
-  { name: 'Explore', href: '/explore', current: false },
-  { name: 'About', href: '/info/about', current: false },
-];
+const spring = {
+  type: 'spring',
+  stiffness: 700,
+  damping: 50,
+};
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
+export const Item = ({
+  link,
+  text,
+  smooth = false,
+}: {
+  link: string;
+  text: string;
+  smooth?: boolean;
+}) => {
+  return (
+    <motion.li className='text-2xl mt-10 sm:mt-0 sm:ml-6'>
+      {smooth ? (
+        <Link href={link}>
+          <a>{text}</a>
+        </Link>
+      ) : (
+        <Link href={link}>
+          <a>{text}</a>
+        </Link>
+      )}
+    </motion.li>
+  );
+};
 
-export default function Example() {
-  const [user, loading, error] = useAuth();
+export const ItemList = ({
+  variants,
+  className,
+}: {
+  variants?: Variants;
+  className?: string;
+}) => {
+  return (
+    <motion.ul variants={variants} className={className} transition={spring}>
+      <Item link={'#'} text={'Home'} />
+      <Item link={'#'} text={'Work'} />
+      <Item link={'#'} text={'About'} />
+      <Item link={'#'} text={'Blog'} />
+    </motion.ul>
+  );
+};
+
+export const Nav = () => {
+  const [isOpen, toggleOpen] = useCycle(false, true);
+
+  useEffect(
+    function mount() {
+      window.onresize = () => {
+        if (isOpen) toggleOpen();
+      };
+    },
+    [isOpen, toggleOpen]
+  );
 
   return (
-    <Disclosure as='nav' className=' bg-surface w-full sticky z-10'>
-      {({ open }) => (
-        <>
-          <div className='max-w-7xl mx-auto px-2 sm:px-6 lg:px-8'>
-            <div className='relative flex items-center justify-between h-16'>
-              <div className='absolute inset-y-0 left-0 flex items-center sm:hidden'>
-                {/* Mobile menu button*/}
-                <Disclosure.Button className='inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700'>
-                  <span className='sr-only'>Open main menu</span>
-                  {open ? (
-                    <XIcon className='block h-6 w-6' aria-hidden='true' />
-                  ) : (
-                    <MenuIcon className='block h-6 w-6' aria-hidden='true' />
-                  )}
-                </Disclosure.Button>
-              </div>
-              <div className='flex-1 flex items-center justify-center sm:items-stretch sm:justify-start'>
-                <div className='flex-shrink-0 flex items-center'>
-                  <Link href='/'>
-                    <a className='flex'>
-                      <MusicNoteIcon className='block lg:hidden h-8 w-auto text-accent' />
-                      <MusicNoteIcon className='hidden lg:block h-8 w-auto text-accent' />
-                      <span className='text-accent text-lg font-semibold px-1'>
-                        Unkn
-                      </span>
-                    </a>
-                  </Link>
-                </div>
-                <div className='hidden sm:block sm:ml-6'>
-                  <div className='flex space-x-4'>
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className={classNames(
-                          item.current
-                            ? 'bg-gray-900 text-white'
-                            : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium'
-                        )}
-                        aria-current={item.current ? 'page' : undefined}
-                      >
-                        {item.name}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className='absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
-                {/* Profile dropdown */}
-                {user ? (
-                  <div>
-                    <Menu as='div' className='ml-3 relative mt-1'>
-                      <div>
-                        <Menu.Button className=''>
-                          <span className='sr-only'>Open user menu</span>
-                          {user.photoURL ? (
-                            <img
-                              className='h-8 w-8 rounded-full'
-                              src={user.photoURL}
-                              alt=''
-                            />
-                          ) : (
-                            <UserIcon />
-                          )}
-                        </Menu.Button>
-                      </div>
-                      <Transition
-                        as={Fragment}
-                        enter='transition ease-out duration-100'
-                        enterFrom='transform opacity-0 scale-95'
-                        enterTo='transform opacity-100 scale-100'
-                        leave='transition ease-in duration-75'
-                        leaveFrom='transform opacity-100 scale-100'
-                        leaveTo='transform opacity-0 scale-95'
-                      >
-                        <Menu.Items className='absolute w-48 top-12 -right-4 shadow-lg py-1 bg-surface'>
-                          <Menu.Item>
-                            {({ active }) => (
-                              <a
-                                href='#'
-                                className={classNames(
-                                  active ? 'bg-gray-100' : '',
-                                  'block px-4 py-2 text-sm text-gray-700'
-                                )}
-                              >
-                                {user.displayName}
-                              </a>
-                            )}
-                          </Menu.Item>
-                          <Menu.Item>
-                            {({ active }) => (
-                              <a
-                                href='/notifications'
-                                className={classNames(
-                                  active ? 'bg-gray-100' : '',
-                                  'block px-4 py-2 text-sm text-gray-700'
-                                )}
-                              >
-                                Notifications
-                              </a>
-                            )}
-                          </Menu.Item>
-                          <Menu.Item>
-                            {({ active }) => (
-                              <a
-                                href='/settings'
-                                className={classNames(
-                                  active ? 'bg-gray-100' : '',
-                                  'block px-4 py-2 text-sm text-gray-700'
-                                )}
-                              >
-                                Settings
-                              </a>
-                            )}
-                          </Menu.Item>
-
-                          <Menu.Item>
-                            {({ active }) => (
-                              <a
-                                href='/sign-out'
-                                className={classNames(
-                                  active ? 'bg-gray-100' : '',
-                                  'block px-4 py-2 text-sm text-gray-700'
-                                )}
-                              >
-                                Sign out
-                              </a>
-                            )}
-                          </Menu.Item>
-                        </Menu.Items>
-                      </Transition>
-                    </Menu>
-                  </div>
-                ) : (
-                  <Menu as='div' className='ml-3 relative'>
-                    <Link href='/login'>
-                      <a>
-                        <Menu.Button className='bg-gray-800 flex text-sm rounded-full'>
-                          <span className='sr-only'>Log in</span>
-                          <LoginIcon className='h-8 w-8' />
-                        </Menu.Button>
-                      </a>
-                    </Link>
-                  </Menu>
-                )}
-              </div>
-            </div>
-          </div>
-
-          <Disclosure.Panel className='sm:hidden'>
-            <div className='px-2 pt-2 pb-3 space-y-1'>
-              {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as='a'
-                  href={item.href}
-                  className={classNames(
-                    item.current
-                      ? 'bg-gray-900 text-white'
-                      : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
-                </Disclosure.Button>
-              ))}
-            </div>
-          </Disclosure.Panel>
-        </>
-      )}
-    </Disclosure>
+    <motion.nav
+      initial={false}
+      animate={isOpen ? 'open' : 'closed'}
+      className='max-w-7xl flex justify-between h-16 mx-auto z-40'
+      layout
+    >
+      <LogoIcon className='h-full w-auto p-3 z-50 ml-3' />
+      <ItemList
+        className='sm:!hidden absolute w-screen flex flex-col items-center h-screen mt-16'
+        variants={{
+          closed: {
+            x: 0,
+            y: '-100vh',
+            background: 'transparent',
+            zIndex: 49,
+          },
+          open: {
+            x: 0,
+            y: -64,
+            background: 'black',
+            zIndex: 49,
+          },
+        }}
+      />
+      <ItemList className='hidden sm:flex items-center p-3 mr-3 z-50' />
+      <MenuIcon
+        toggle={() => toggleOpen()}
+        className='h-full w-auto sm:hidden p-3 z-50 mr-3'
+      />
+    </motion.nav>
   );
-}
+};
+
+export default Nav;

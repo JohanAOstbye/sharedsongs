@@ -13,19 +13,15 @@ const Layout = ({
   children,
   title = 'This is the default title',
   className = 'bg-background',
-}: Props) => (
-  <div className=' text-on-background flex flex-col items-center justify-center min-h-screen'>
-    <Head title={title} />
-    <Navbar />
-    <main
-      className={`${className} flex flex-col items-center justify-center w-full ${
-        className ? '' : 'min-h-screen'
-      } flex-1 px-5 text-center`}
-    >
-      {children}
-    </main>
-    <Footer />
-  </div>
-);
+}: Props) => {
+  return (
+    <div className={`${className} text-gray-300 min-h-screen`}>
+      <Head title={title} />
+      <Navbar />
+      <main>{children}</main>
+      <Footer />
+    </div>
+  );
+};
 
 export default Layout;

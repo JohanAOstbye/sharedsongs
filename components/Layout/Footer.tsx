@@ -5,8 +5,8 @@ import React, { useState } from 'react';
 const Footer = () => {
   const [mode, setMode] = useState('auto');
   return (
-    <div className=' bg-surface w-full text-on-surface'>
-      <footer id='footer' className='relative z-50'>
+    <div className=' bg-surface text-onsurface'>
+      <footer id='footer' className='relative z-2 m-auto max-w-7xl'>
         <div className='pt-8'>
           <div className='mx-auto container px-4 xl:px-12 2xl:px-4'>
             <div className='lg:flex'>
@@ -15,14 +15,14 @@ const Footer = () => {
                   <ul>
                     <li>
                       <Link href='/info/about'>
-                        <a className='text-xs lg:text-sm leading-none hover:text-accent text-gray-800'>
+                        <a className='text-md lg:text-sm leading-none hover:text-accent'>
                           About
                         </a>
                       </Link>
                     </li>
                     <li className='mt-6'>
                       <Link href='/info/faq'>
-                        <a className='text-xs lg:text-sm leading-none hover:text-accent text-gray-800'>
+                        <a className='text-md lg:text-sm leading-none hover:text-accent'>
                           FAQ
                         </a>
                       </Link>
@@ -33,14 +33,14 @@ const Footer = () => {
                   <ul>
                     <li>
                       <Link href='/info/blog'>
-                        <a className='text-xs lg:text-sm leading-none hover:text-accent text-gray-800'>
+                        <a className='text-md lg:text-sm leading-none hover:text-accent '>
                           Blog
                         </a>
                       </Link>
                     </li>
                     <li className='mt-6'>
                       <Link href='/info/changelog'>
-                        <a className='text-xs lg:text-sm leading-none hover:text-accent text-gray-800'>
+                        <a className='text-md lg:text-sm leading-none hover:text-accent '>
                           Changelog
                         </a>
                       </Link>
@@ -54,14 +54,14 @@ const Footer = () => {
                     <li>
                       <a
                         href='/info/privacy-policy'
-                        className='text-xs lg:text-sm leading-none hover:text-accent text-gray-800'
+                        className='text-md lg:text-sm leading-none hover:text-accent '
                       >
                         Privacy policy
                       </a>
                     </li>
                     <li className='mt-6'>
                       <Link href='/info/terms-of-service'>
-                        <a className='text-xs lg:text-sm leading-none hover:text-accent text-gray-800'>
+                        <a className='text-md lg:text-sm leading-none hover:text-accent '>
                           Terms of service
                         </a>
                       </Link>
@@ -71,7 +71,7 @@ const Footer = () => {
                 <div className='w-full lg:w-1/2 px-6 flex flex-col justify-between'>
                   <div className='flex items-center'>
                     <a href='https://github.com/JohanAOstbye'>
-                      <div className='text-gray-800 cursor-pointer hover:text-accent'>
+                      <div className=' cursor-pointer hover:text-accent'>
                         <FaGithub className='h-6 w-6' />
                       </div>
                     </a>
@@ -106,7 +106,7 @@ const Footer = () => {
               </span>
             </a>
           </Link>
-          <p className='mt-6 text-xs lg:text-sm leading-none text-gray-900'>
+          <p className='mt-6 text-xs lg:text-sm leading-none text-gray-500'>
             2021 UnknLists. All Rights Reserved.
           </p>
         </div>

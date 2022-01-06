@@ -1,4 +1,4 @@
-import Loading from '../elements/Loading';
+import Loading from './Loading';
 
 const FullPageLoader = () => (
   <div className='bg-background'>
