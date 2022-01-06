@@ -16,6 +16,9 @@ module.exports = {
         onsecondary: '#060606',
         onerror: '#060606',
       },
+      backgroundImage: {
+        'hero-pattern': "url('/images/hero.svg')",
+      },
     },
   },
   plugins: [],

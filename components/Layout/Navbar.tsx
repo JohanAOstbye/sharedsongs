@@ -91,7 +91,7 @@ export const Nav = () => {
       <ItemList className='hidden sm:flex items-center p-3 mr-3 z-50' />
       <MenuIcon
         toggle={() => toggleOpen()}
-        className='h-full w-auto sm:hidden p-3 z-50 mr-3'
+        className='h-full w-auto sm:hidden p-4 z-50 mr-3'
       />
     </motion.nav>
   );
