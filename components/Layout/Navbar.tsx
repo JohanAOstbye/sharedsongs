@@ -21,15 +21,9 @@ export const Item = ({
 }) => {
   return (
     <motion.li className='mt-10 sm:mt-0 sm:ml-6'>
-      {smooth ? (
-        <Link href={link}>
-          <a>{text}</a>
-        </Link>
-      ) : (
-        <Link href={link}>
-          <a>{text}</a>
-        </Link>
-      )}
+      <Link href={link}>
+        <a>{text}</a>
+      </Link>
     </motion.li>
   );
 };

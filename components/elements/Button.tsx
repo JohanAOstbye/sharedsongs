@@ -7,7 +7,7 @@ type props = {
   classNames?: string;
 };
 
-const btnLink = ({ link = '/test', children = 'test', classNames }: props) => {
+const Button = ({ link = '/test', children = 'test', classNames }: props) => {
   return (
     <Link href={link}>
       <a
@@ -19,4 +19,4 @@ const btnLink = ({ link = '/test', children = 'test', classNames }: props) => {
   );
 };
 
-export default btnLink;
+export default Button;
