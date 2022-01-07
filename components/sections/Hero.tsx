@@ -4,7 +4,7 @@ import Button from '../elements/Button';
 
 const Hero = () => {
   return (
-    <section className='flex flex-col items-center justify-end sm:justify-center sm:flex-row bg-hero-pattern bg-no-repeat bg-center w-full sm: min-h-[calc(100vh-64px)]'>
+    <section className='flex flex-col items-center justify-end sm:justify-center sm:flex-row bg-hero-pattern bg-no-repeat bg-center w-full min-h-[calc(100vh-64px)]'>
       <div className='p-6 max-w-lg'>
         <p className='text-4xl tracking-wide leading-[3rem]'>
           Discover and share new songs

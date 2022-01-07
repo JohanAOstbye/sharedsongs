@@ -19,8 +19,8 @@ const Loading = ({ size = 'base' }: props) => {
 
   return (
     <div
-      className={`animate-spin rounded-full border-t-2 border-b-2 border-purple-500 ${sizeEnum[size]}`}
-    />
+      className={`animate-spin border-t-transparent ease-linear rounded-full border-4 border-accent ${sizeEnum[size]}`}
+    ></div>
   );
 };
 

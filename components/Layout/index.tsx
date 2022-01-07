@@ -18,7 +18,9 @@ const Layout = ({
     <div className={`${className} text-gray-300 min-h-screen`}>
       <Head title={title} />
       <Navbar />
-      <main>{children}</main>
+      <main className='min-h-[calc(100vh-64px)] flex items-center justify-center'>
+        {children}
+      </main>
       <Footer />
     </div>
   );
