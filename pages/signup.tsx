@@ -1,5 +1,13 @@
+import Input from '../components/elements/input';
+
 const signin = () => {
-  return <div>nerd</div>;
+  return (
+    <div>
+      <form>
+        <Input id='a' />
+      </form>
+    </div>
+  );
 };
 
 export default signin;

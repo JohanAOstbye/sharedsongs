@@ -1,13 +1,23 @@
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
 
-type props = {
+type linkprops = {
   link: string;
   children: ReactNode;
   classNames?: string;
 };
 
-const Button = ({ link = '/test', children = 'test', classNames }: props) => {
+type btnprops = {
+  onClick: () => {};
+  children: ReactNode;
+  classNames?: string;
+};
+
+export const ButtonLink = ({
+  link = '/test',
+  children = 'test',
+  classNames,
+}: linkprops) => {
   return (
     <Link href={link}>
       <a
@@ -19,4 +29,17 @@ const Button = ({ link = '/test', children = 'test', classNames }: props) => {
   );
 };
 
-export default Button;
+export const Button = ({
+  onClick,
+  children = 'test',
+  classNames,
+}: btnprops) => {
+  return (
+    <button
+      onClick={onClick}
+      className={`${classNames} bg-accent text-on-accent rounded-md py-2 px-4 font-bold`}
+    >
+      {children}
+    </button>
+  );
+};

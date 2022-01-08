@@ -1,13 +1,12 @@
 import { FaGithub, FaTwitter, FaGooglePlay, FaApple } from 'react-icons/fa';
 import { MusicNoteIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
 const Footer = () => {
-  const [mode, setMode] = useState('auto');
   return (
     <footer id='footer' className='relative z-2 m-auto max-w-7xl text-center'>
       <div className='pt-8 mx-auto container px-4 xl:px-12 2xl:px-4 lg:flex'>
-        <div className='w-full lg:w-1/2 mb-16 lg:mb-0 flex'>
+        <div className='w-full lg:w-1/2 mb-10 lg:mb-0 flex'>
           <div className='w-full lg:w-1/2 px-6'>
             <ul>
               <li>
@@ -17,7 +16,7 @@ const Footer = () => {
                   </a>
                 </Link>
               </li>
-              <li className='mt-6'>
+              <li className='mt-3'>
                 <Link href='/info/faq'>
                   <a className='text-md lg:text-sm leading-none hover:text-accent'>
                     FAQ
@@ -35,7 +34,7 @@ const Footer = () => {
                   </a>
                 </Link>
               </li>
-              <li className='mt-6'>
+              <li className='mt-3'>
                 <Link href='/info/changelog'>
                   <a className='text-md lg:text-sm leading-none hover:text-accent '>
                     Changelog
@@ -56,7 +55,7 @@ const Footer = () => {
                   Privacy policy
                 </a>
               </li>
-              <li className='mt-6'>
+              <li className='mt-3'>
                 <Link href='/info/terms-of-service'>
                   <a className='text-md lg:text-sm leading-none hover:text-accent '>
                     Terms of service
@@ -89,7 +88,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className='py-16 flex flex-col justify-center items-center'>
+      <div className='py-12 flex flex-col justify-center items-center'>
         <Link href='/'>
           <a className='flex items-center'>
             <MusicNoteIcon className='block lg:hidden h-14 w-auto text-accent' />
@@ -99,7 +98,7 @@ const Footer = () => {
             </span>
           </a>
         </Link>
-        <p className='mt-6 text-xs lg:text-sm leading-none text-gray-500'>
+        <p className='mt-3 text-xs lg:text-sm leading-none text-gray-500'>
           2021 UnknLists. All Rights Reserved.
         </p>
       </div>

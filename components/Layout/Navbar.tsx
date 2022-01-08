@@ -2,6 +2,7 @@ import { motion, useCycle, Variants } from 'framer-motion';
 import { MenuIcon } from '../icons/MenuIcon';
 import { LogoIcon } from '../icons/LogoIcon';
 import Link from 'next/link';
+import { useSession, signOut } from 'next-auth/react';
 import { useEffect } from 'react';
 
 const spring = {
@@ -30,17 +31,33 @@ export const Item = ({
 
 export const ItemList = ({
   variants,
+  toggle = () => {},
   className,
 }: {
+  toggle?: (i?: number | undefined) => void;
   variants?: Variants;
   className?: string;
 }) => {
+  const { data: Session } = useSession();
+  console.log(Session.user);
+
   return (
-    <motion.ul variants={variants} className={className} transition={spring}>
+    <motion.ul
+      variants={variants}
+      className={className}
+      transition={spring}
+      onClick={() => {
+        toggle();
+      }}
+    >
       <Item link={'#'} text={'Home'} />
       <Item link={'#'} text={'Work'} />
       <Item link={'#'} text={'About'} />
       <Item link={'#'} text={'Blog'} />
+      {/* <Item
+        link={data ? '/profile' : '/login'}
+        text={data ? data?.session?.user?.name : 'login'}
+      /> */}
     </motion.ul>
   );
 };
@@ -81,6 +98,7 @@ export const Nav = () => {
             zIndex: 49,
           },
         }}
+        toggle={() => toggleOpen()}
       />
       <ItemList className='text-xl hidden sm:flex items-center p-3 mr-3 z-50' />
       <MenuIcon

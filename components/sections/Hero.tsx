@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import mello from '../../public/images/mello.svg';
-import Button from '../elements/Button';
+import { ButtonLink as Button } from '../elements/Button';
 
 const Hero = () => {
   return (
