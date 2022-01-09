@@ -1,8 +1,14 @@
-import { User } from 'firebase/auth';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../config/firebase';
+import { Session } from 'next-auth';
+import { useSession } from 'next-auth/react';
 
-export const useAuth = () => {
-  const authState: [User, boolean, Error] = useAuthState(auth);
+type sessionState =
+  | { data: Session; status: 'authenticated' }
+  | { data: null; status: 'loading' }
+  | { data: Session; status: 'authenticated' }
+  | { data: null; status: 'loading' | 'unauthenticated' };
+
+export const useToken = () => {
+  const authState: sessionState = useSession();
+  console.log(authState);
   return authState;
 };

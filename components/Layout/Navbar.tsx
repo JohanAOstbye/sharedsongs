@@ -2,7 +2,7 @@ import { motion, useCycle, Variants } from 'framer-motion';
 import { MenuIcon } from '../icons/MenuIcon';
 import { LogoIcon } from '../icons/LogoIcon';
 import Link from 'next/link';
-import { useSession, signOut } from 'next-auth/react';
+// import { useSession, signOut } from 'next-auth/react';
 import { useEffect } from 'react';
 
 const spring = {
@@ -11,15 +11,7 @@ const spring = {
   damping: 50,
 };
 
-export const Item = ({
-  link,
-  text,
-  smooth = false,
-}: {
-  link: string;
-  text: string;
-  smooth?: boolean;
-}) => {
+export const Item = ({ link, text }: { link: string; text: string }) => {
   return (
     <motion.li className='mt-10 sm:mt-0 sm:ml-6'>
       <Link href={link}>
@@ -38,8 +30,7 @@ export const ItemList = ({
   variants?: Variants;
   className?: string;
 }) => {
-  const { data: Session } = useSession();
-  console.log(Session.user);
+  // const session = useSession();
 
   return (
     <motion.ul
@@ -55,8 +46,8 @@ export const ItemList = ({
       <Item link={'#'} text={'About'} />
       <Item link={'#'} text={'Blog'} />
       {/* <Item
-        link={data ? '/profile' : '/login'}
-        text={data ? data?.session?.user?.name : 'login'}
+        link={session ? '/profile' : '/login'}
+        text={session ? session.data?.expires : 'login'}
       /> */}
     </motion.ul>
   );
@@ -81,7 +72,10 @@ export const Nav = () => {
       className='max-w-7xl flex justify-between h-16 mx-auto z-40'
       layout
     >
-      <LogoIcon className='h-full w-auto p-3 z-50 ml-3' />
+      <LogoIcon
+        className='h-full w-auto p-3 z-50 ml-3'
+        logoClassName='w-8 h-8'
+      />
       <ItemList
         className='text-2xl sm:!hidden absolute w-screen flex flex-col items-center h-screen mt-16'
         variants={{

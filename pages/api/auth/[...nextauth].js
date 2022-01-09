@@ -22,5 +22,5 @@ export default NextAuth({
       return session;
     },
   },
-  secret: 'sedfcgvhbjnkmløoiuytf',
+  secret: 'SGqabuTejhdY1kuAaBZOhqaj/T7zgCkyhIgXHSaYKF8=',
 });

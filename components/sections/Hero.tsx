@@ -18,13 +18,13 @@ const Hero = () => {
             Start exploring
           </Button>
           <span className='pl-4'>or</span>
-          <Button link='/login' classNames='text-accent bg-transparent'>
-            login
+          <Button link='/auth/signin' classNames='text-accent bg-transparent'>
+            Sign in
           </Button>
         </div>
       </div>
       <div className='flex items-center justify-between w-full sm:w-96'>
-        <div className='max-h-96 h-[60vw] relative w-full flex items-center justify-center'>
+        <div className='max-h-96 h-[60vw] w-full relative flex items-center justify-center'>
           <Image
             src={mello}
             alt='Mello listening'
